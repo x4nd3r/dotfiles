@@ -2,6 +2,8 @@ set nocompatible
 set laststatus=2
 set expandtab
 set shiftwidth=2
+set splitbelow
+set splitright
 syntax enable
 filetype plugin on
 filetype indent on
