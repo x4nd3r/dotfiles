@@ -7,8 +7,9 @@ fi
 
 # Aliases
 alias ..='cd ..'
-alias ls='ls -lrth'
 alias l='ls'
+alias la='l -a'
+alias ls='ls -lrth'
 alias q='exit'
 alias R='R --no-save'
 alias reload='source ~/.bashrc'
