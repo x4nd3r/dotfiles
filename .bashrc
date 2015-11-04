@@ -13,12 +13,6 @@ alias ls='ls -lrth'
 alias q='exit'
 alias R='R --no-save'
 alias reload='source ~/.bashrc'
-# OS X specific
-alias show='defaults write com.apple.finder AppleShowAllFiles YES;
-            killall Finder /System/Library/CoreServices/Finder.app'
-alias hide='defaults write com.apple.finder AppleShowAllFiles NO;
-            killall Finder /System/Library/CoreServices/Finder.app'
-alias wake='pmset noidle'
 
 # Functions
 function cd() { builtin cd "$@" && ls; }
