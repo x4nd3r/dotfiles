@@ -1,0 +1,64 @@
+# .osx
+
+#-------------------------------------------------------------------------------
+# input
+#-------------------------------------------------------------------------------
+# disable smart quotes and smart dashes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+#-------------------------------------------------------------------------------
+# trackpad
+#-------------------------------------------------------------------------------
+# tap to click
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# tap bottom right to right-click
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# disable "default" scrolling (read: reversed)
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+#-------------------------------------------------------------------------------
+# screen/display
+#-------------------------------------------------------------------------------
+# require password immediately after screensaver
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+# show desktop icons for hard drives, serves, and removable media
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+# Finder searches the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+# minimise windows into their application icon
+defaults write com.apple.dock minimize-to-application -bool true
+# automatically hide and display the dock
+defaults write com.apple.dock autohide -bool true
+
+#-------------------------------------------------------------------------------
+# hot corners
+#-------------------------------------------------------------------------------
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# top left -> screen saver
+defaults write com.apple.dock wvous-tl-corner -int 5
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# top right -> desktop
+defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+#-------------------------------------------------------------------------------
+# iTunes
+#-------------------------------------------------------------------------------
+# disable automatic device syncing
+defaults write com.apple.iTunes dontAutomaticallySyncIPods -bool true
