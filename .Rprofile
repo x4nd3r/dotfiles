@@ -1,12 +1,8 @@
 # .Rprofile
 
-# preload useful libraries
-library(colorout)
-library(ggplot2)
-library(reshape2)
-library(plyr)
-source("http://bioconductor.org/biocLite.R")
-
+#-------------------------------------------------------------------------------
+# options
+#-------------------------------------------------------------------------------
 options(width = 120)  # wide display
 options("digits.secs" = 3)  # show sub-second time stamps
 options(prompt = "R> ")
@@ -18,7 +14,38 @@ r["CRAN"] <- "http://cran.csiro.au/"
 options(repos = r)
 rm(r)
 
-.libPaths(c(.libPaths(), "usr/lib/R"))  # set library path
+#-------------------------------------------------------------------------------
+# functions
+#-------------------------------------------------------------------------------
+# list all functions (PascalCase)
+.ls() <- function() {
+  ls(pattern = "^[A-Z]", envir = .GlobalEnv)
+}
+
+# view a manageable head of wide data
+.head <- function(x) {
+  if (ncol(x) > 10) {
+    cols <- ncol(x)
+  } else {
+    cols <- 10
+  }
+  head(x, n = 10)[, 1:cols]
+}
+
+# set library path
+.libPaths(c(.libPaths(), "usr/lib/R"))
+
+# pre
+.First <- function() {
+  library(colorout)
+  library(ggplot2)
+  library(reshape2)
+  library(plyr)
+  source("http://bioconductor.org/biocLite.R")
+  cat("\nGreetings, earthling.\n")
+}
+
+# post
 .Last <- function() {                   # load previous history
   if (!any(commandArgs() == '--no-readline') && interactive()) {
     require(utils)
