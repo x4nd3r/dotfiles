@@ -18,7 +18,7 @@ rm(r)
 # functions
 #-------------------------------------------------------------------------------
 # list all functions (PascalCase)
-.ls() <- function() {
+.ls <- function() {
   ls(pattern = "^[A-Z]", envir = .GlobalEnv)
 }
 
