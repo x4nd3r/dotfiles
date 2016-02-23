@@ -12,10 +12,11 @@ alias la='l -a'
 alias ls='ls -lrth'
 alias q='exit'
 alias R='R --no-save'
-alias reload='source ~/.bashrc'
+alias reload='source ~/.bashrc; echo ".bashrc reloaded"'
 
 # Functions
 function cd() { builtin cd "$@" && ls; }
+function dl() { scp ${@} uqahollo@qbi-holloway:~/Downloads/; }
 function mkcd() { mkdir -p "$@" && cd "$@"; }
 function rxiv() { tar -cvzf "$(date '+%Y-%m-%d')_${1}.tgz" --exclude "${1}" ${@}; }
 function countdown() {(
