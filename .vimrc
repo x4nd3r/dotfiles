@@ -1,13 +1,19 @@
+"settings"
 set nocompatible
 set laststatus=2
 set expandtab
 set shiftwidth=2
 set splitbelow
 set splitright
+set hlsearch
 syntax enable
 filetype plugin on
 filetype indent on
 
+"mappings"
+nnoremap <CR> :noh<CR><CR>
+
+"status line"
 set statusline=                   "clear"
 set statusline+=%<\               "cut"
 set statusline+=%-40f\            "file path"
@@ -26,4 +32,5 @@ call plug#begin('~/.vim/plugged')
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static'
+Plug 'onur/vim-motivate'
 call plug#end()
