@@ -7,6 +7,8 @@ fi
 
 # Aliases
 alias ..='cd ..'
+alias dev='cd ~/Development'
+alias study='cd ~/Study'
 alias l='ls'
 alias la='l -a'
 alias ls='ls -lrth'
@@ -15,8 +17,8 @@ alias R='R --no-save'
 alias reload='source ~/.bashrc; echo ".bashrc reloaded"'
 
 # Functions
+# function dl() { scp ${@} uqahollo@qbi-holloway:~/Downloads/; }
 function cd() { builtin cd "$@" && ls; }
-function dl() { scp ${@} uqahollo@qbi-holloway:~/Downloads/; }
 function mkcd() { mkdir -p "$@" && cd "$@"; }
 function rxiv() { tar -cvzf "$(date '+%Y-%m-%d')_${1}.tgz" --exclude "${1}" ${@}; }
 function countdown() {(
