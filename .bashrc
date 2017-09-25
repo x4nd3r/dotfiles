@@ -21,6 +21,7 @@ alias reload='source ~/.bashrc; echo ".bashrc reloaded"'
 function cd() { builtin cd "$@" && ls; }
 function mkcd() { mkdir -p "$@" && cd "$@"; }
 function rxiv() { tar -cvzf "$(date '+%Y-%m-%d')_${1}.tgz" --exclude "${1}" ${@}; }
+function texify() { pdflatex ${1}; bibtex ${1}; pdflatex ${1}; pdflatex ${1}; open "${1}.pdf"; }
 function countdown() {(
   IFS=:
   set -- $*
