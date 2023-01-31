@@ -9,6 +9,9 @@ set hlsearch
 syntax enable
 filetype plugin on
 filetype indent on
+set number
+set relativenumber
+highlight LineNr ctermbg=black
 
 "mappings"
 nnoremap <CR> :noh<CR><CR>
@@ -31,6 +34,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static'
 Plug 'onur/vim-motivate'
 call plug#end()
+
+let g:slime_target = "tmux"
