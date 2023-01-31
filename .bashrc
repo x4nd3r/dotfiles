@@ -7,13 +7,12 @@ fi
 
 # Aliases
 alias ..='cd ..'
-alias dev='cd ~/Development'
-alias study='cd ~/Study'
 alias l='ls'
 alias la='l -a'
 alias ls='ls -lrth'
 alias q='exit'
 alias R='R --no-save'
+alias dev='cd ~/Development'
 alias reload='source ~/.bashrc; echo ".bashrc reloaded"'
 
 # Functions
@@ -22,6 +21,7 @@ function cd() { builtin cd "$@" && ls; }
 function mkcd() { mkdir -p "$@" && cd "$@"; }
 function rxiv() { tar -cvzf "$(date '+%Y-%m-%d')_${1}.tgz" --exclude "${1}" ${@}; }
 function texify() { pdflatex ${1}; bibtex ${1}; pdflatex ${1}; pdflatex ${1}; open "${1}.pdf"; }
+parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' }
 function countdown() {(
   IFS=:
   set -- $*
@@ -37,7 +37,7 @@ function countdown() {(
 )}
 
 # Exports
-export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$'
+export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\] \[\e[91m\]$(parse_git_branch)\[\e[00m\]$'
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export R_HISTFILE='~/.Rhistory'
